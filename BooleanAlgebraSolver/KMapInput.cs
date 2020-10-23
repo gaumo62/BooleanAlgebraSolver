@@ -23,6 +23,8 @@ namespace BooleanAlgebraSolver
             alpha.Add("C");
             alpha.Add("D");
             alpha.Add("E");
+            
+            //Add columns dynamically to dataGridView1 (Table)
             for (int i=0;i<variables;i++)
             {
                 DataGridViewTextBoxColumn c = new DataGridViewTextBoxColumn();
@@ -36,6 +38,8 @@ namespace BooleanAlgebraSolver
             col.ReadOnly = true;
             col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns.Insert(this.variables, col);
+            
+            //Add 2^32 columns and filling their values
             for(int i=0;i<=Math.Pow(2,variables)-1;i++)
             {
                 string binary = Convert.ToString(i, 2);
@@ -56,6 +60,7 @@ namespace BooleanAlgebraSolver
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //When any cell of the table is clicked, if it is a checkbox cell, that checkbox should get ticked and rest all should get unticked
             if (dataGridView1.Rows.Count <= 0) return;
             for (int i = dataGridView1.Columns.Count - 3; i < dataGridView1.Columns.Count; i++)
             {
@@ -72,6 +77,7 @@ namespace BooleanAlgebraSolver
             List<int> dontcare = new List<int>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
+                //Check if only 1 checkbox per row is clicked. If yes, add the terms to respective arrays
                 int check = 0,check_ind=-1;
                 for (int i = dataGridView1.Columns.Count - 3; i < dataGridView1.Columns.Count; i++)
                 {
