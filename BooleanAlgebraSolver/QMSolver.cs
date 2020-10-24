@@ -6,6 +6,22 @@ using System.Threading.Tasks;
 
 namespace BooleanAlgebraSolver
 {
+    class ROW
+    {
+        public string s;
+        public List<int> minTermsIncluded;
+        public int isTicked;
+        public ROW()
+        {
+            this.s = "";
+            this.isTicked = 0;
+            minTermsIncluded = new List<int>();
+        }
+    }
+    class STAGE
+    {
+        List<List<ROW>> rows = new List<List<ROW>>();
+    }
     class QMSolver
     {
         private int variables;

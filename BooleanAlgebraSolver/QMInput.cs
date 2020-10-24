@@ -12,8 +12,8 @@ namespace BooleanAlgebraSolver
 {
     public partial class QMInput : Form
     {
-        private List<int> minterms = new List<int>();
-        private List<int> dontcares = new List<int>();
+        private List<int> minterms;
+        private List<int> dontcares;
         private int variables;
         public QMInput(int var)
         {
@@ -35,6 +35,18 @@ namespace BooleanAlgebraSolver
         }
         private void minimizeButton_Click(object sender, EventArgs e)
         {
+            #region
+            //Initialise the lists
+            minterms = new List<int>();
+            dontcares = new List<int>();
+
+            //Check if minterms Textbox is empty
+            if(mintermTB.Text.Replace(" ", String.Empty)=="")
+            {
+                MessageBox.Show("Please enter atleast one minterm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
             //Add minterms to minterms list
             try
             {
@@ -59,6 +71,15 @@ namespace BooleanAlgebraSolver
                 return;
             }
 
+            //Check for duplicate minterms
+            var total = minterms.GroupBy(_ => _).Where(_ => _.Count() > 1).Sum(_ => _.Count());
+            Console.WriteLine(total);
+            if (total!=0)
+            {
+                MessageBox.Show("All minterms should be unique", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             //Add dontcares to dontcares list
             try
             {
@@ -78,17 +99,23 @@ namespace BooleanAlgebraSolver
             catch
             {
                 //To catch any random error
-                MessageBox.Show("Enter the Don't Cares properly", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if(dontcareTB.Text.Replace(" ", String.Empty)!="")
+                {
+                    MessageBox.Show("Enter the Don't Cares properly", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
             }
 
-            //Check if minterms and dontcares have a 
+            //Check if minterms and dontcares have any common terms 
             var commonList = minterms.Intersect(dontcares);
             if(commonList.Any())
             {
                 MessageBox.Show("Terms are repeating between Minterms and Don't Cares", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            #endregion
+            
             Console.Write("\nMinterms:");
             for (int i = 0; i < minterms.Count; i++) Console.Write(minterms[i] + " ");
             Console.WriteLine("\nDont Cares:");
