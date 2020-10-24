@@ -55,6 +55,7 @@ namespace BooleanAlgebraSolver
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
 
 
@@ -62,6 +63,7 @@ namespace BooleanAlgebraSolver
         {
             //When any cell of the table is clicked, if it is a checkbox cell, that checkbox should get ticked and rest all should get unticked
             if (dataGridView1.Rows.Count <= 0) return;
+            if (e.RowIndex < 0) return;
             for (int i = dataGridView1.Columns.Count - 3; i < dataGridView1.Columns.Count; i++)
             {
                 dataGridView1.Rows[e.RowIndex].Cells[i].Value = false;
@@ -107,6 +109,8 @@ namespace BooleanAlgebraSolver
             for (int i = 0; i < minterm.Count; i++) Console.Write(minterm[i] + " ");
             Console.WriteLine("\nDont Cares:");
             for (int i = 0; i < dontcare.Count; i++) Console.WriteLine(dontcare[i] + " ");
+            QMSolver s = new QMSolver(this.variables, minterm, dontcare);
+            s.solve();
         }
 
 

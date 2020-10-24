@@ -36,9 +36,9 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.kmapButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.qmTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.qmButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 100);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // radioButton4
             // 
@@ -107,7 +106,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "2 variables";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // kmapButton
             // 
@@ -129,12 +127,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "QM Algorithm";
             // 
-            // textBox1
+            // qmTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(334, 180);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 22);
-            this.textBox1.TabIndex = 6;
+            this.qmTB.Location = new System.Drawing.Point(334, 180);
+            this.qmTB.Name = "qmTB";
+            this.qmTB.Size = new System.Drawing.Size(208, 22);
+            this.qmTB.TabIndex = 6;
             // 
             // label3
             // 
@@ -146,23 +144,24 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Number of Variables";
             // 
-            // button1
+            // qmButton
             // 
-            this.button1.Location = new System.Drawing.Point(548, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 34);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Enter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.qmButton.Location = new System.Drawing.Point(548, 174);
+            this.qmButton.Name = "qmButton";
+            this.qmButton.Size = new System.Drawing.Size(110, 34);
+            this.qmButton.TabIndex = 8;
+            this.qmButton.Text = "Enter";
+            this.qmButton.UseVisualStyleBackColor = true;
+            this.qmButton.Click += new System.EventHandler(this.qmButton_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.qmButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.qmTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.kmapButton);
             this.Controls.Add(this.panel1);
@@ -186,9 +185,9 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button kmapButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox qmTB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button qmButton;
     }
 }
 

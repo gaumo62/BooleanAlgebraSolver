@@ -17,16 +17,6 @@ namespace BooleanAlgebraSolver
             InitializeComponent();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void kmapButton_Click(object sender, EventArgs e)
         {
             if(radioButton1.Checked==true)
@@ -49,6 +39,21 @@ namespace BooleanAlgebraSolver
                 KMapInput f = new KMapInput(5);
                 f.Show();
             }
+        }
+
+        private void qmButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(qmTB.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Please enter an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            QMInput f = new QMInput(int.Parse(qmTB.Text.Trim()));
+            f.Show();
         }
     }
 }
