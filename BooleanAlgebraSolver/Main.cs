@@ -55,5 +55,35 @@ namespace BooleanAlgebraSolver
             QMInput f = new QMInput(int.Parse(qmTB.Text.Trim()));
             f.Show();
         }
+
+        private void hazardButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(hazardTB.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Please enter an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            HazardInput f = new HazardInput(int.Parse(hazardTB.Text.Trim()), 1);
+            f.Show();
+        }
+
+        private void static0Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(hazardTB.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Please enter an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            HazardInput f = new HazardInput(int.Parse(hazardTB.Text.Trim()), 0);
+            f.Show();
+        }
     }
 }

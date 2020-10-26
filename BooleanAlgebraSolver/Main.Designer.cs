@@ -39,6 +39,11 @@
             this.qmTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.qmButton = new System.Windows.Forms.Button();
+            this.static1Button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.hazardTB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.static0Button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,11 +159,63 @@
             this.qmButton.UseVisualStyleBackColor = true;
             this.qmButton.Click += new System.EventHandler(this.qmButton_Click);
             // 
+            // static1Button
+            // 
+            this.static1Button.Location = new System.Drawing.Point(548, 245);
+            this.static1Button.Name = "static1Button";
+            this.static1Button.Size = new System.Drawing.Size(110, 34);
+            this.static1Button.TabIndex = 12;
+            this.static1Button.Text = "Static 1";
+            this.static1Button.UseVisualStyleBackColor = true;
+            this.static1Button.Click += new System.EventHandler(this.hazardButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(191, 256);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 17);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Number of Variables";
+            // 
+            // hazardTB
+            // 
+            this.hazardTB.Location = new System.Drawing.Point(334, 251);
+            this.hazardTB.Name = "hazardTB";
+            this.hazardTB.Size = new System.Drawing.Size(208, 22);
+            this.hazardTB.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 254);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Hazard Remover";
+            // 
+            // static0Button
+            // 
+            this.static0Button.Location = new System.Drawing.Point(664, 245);
+            this.static0Button.Name = "static0Button";
+            this.static0Button.Size = new System.Drawing.Size(110, 34);
+            this.static0Button.TabIndex = 13;
+            this.static0Button.Text = "Static 0";
+            this.static0Button.UseVisualStyleBackColor = true;
+            this.static0Button.Click += new System.EventHandler(this.static0Button_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.static0Button);
+            this.Controls.Add(this.static1Button);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.hazardTB);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.qmButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.qmTB);
@@ -188,6 +245,11 @@
         private System.Windows.Forms.TextBox qmTB;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button qmButton;
+        private System.Windows.Forms.Button static1Button;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox hazardTB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button static0Button;
     }
 }
 

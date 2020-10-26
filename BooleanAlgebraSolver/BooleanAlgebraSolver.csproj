@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HazardInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HazardInput.Designer.cs">
+      <DependentUpon>HazardInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HazardSolver.cs" />
     <Compile Include="KMapInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
       <DependentUpon>QMInput.cs</DependentUpon>
     </Compile>
     <Compile Include="QMSolver.cs" />
+    <EmbeddedResource Include="HazardInput.resx">
+      <DependentUpon>HazardInput.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KMapInput.resx">
       <DependentUpon>KMapInput.cs</DependentUpon>
     </EmbeddedResource>

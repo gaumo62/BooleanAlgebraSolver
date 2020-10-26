@@ -119,9 +119,11 @@ namespace BooleanAlgebraSolver
             Console.Write("\nMinterms:");
             for (int i = 0; i < minterms.Count; i++) Console.Write(minterms[i] + " ");
             Console.WriteLine("\nDont Cares:");
-            for (int i = 0; i < dontcares.Count; i++) Console.WriteLine(dontcares[i] + " ");
+            for (int i = 0; i < dontcares.Count; i++) Console.Write(dontcares[i] + " ");
+            Console.Write("\n");
             QMSolver s = new QMSolver(this.variables, minterms, dontcares);
             s.solve();
+            s.PRINT();
         }
     }
 }
