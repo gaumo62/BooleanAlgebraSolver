@@ -85,5 +85,20 @@ namespace BooleanAlgebraSolver
             HazardInput f = new HazardInput(int.Parse(hazardTB.Text.Trim()), 0);
             f.Show();
         }
+
+        private void multipleOutMinButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(multipleOutMinTB.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Please enter an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MultipleOutputMinimization f = new MultipleOutputMinimization(int.Parse(multipleOutMinTB.Text.Trim()));
+            f.Show();
+        }
     }
 }

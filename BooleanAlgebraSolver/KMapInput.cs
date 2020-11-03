@@ -111,6 +111,7 @@ namespace BooleanAlgebraSolver
             for (int i = 0; i < dontcare.Count; i++) Console.WriteLine(dontcare[i] + " ");
             QMSolver s = new QMSolver(this.variables, minterm, dontcare);
             s.solve();
+            s.PRINT();
         }
 
 

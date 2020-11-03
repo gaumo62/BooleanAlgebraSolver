@@ -61,12 +61,33 @@ namespace BooleanAlgebraSolver
         public List<STAGE> stages = new List<STAGE>();
         public List<Tuple<string, List<int>>> primeImplicant = new List<Tuple<string, List<int>>>();
         public List<List<string>> essentialPi = new List<List<string>>();
+        public QMSolver(int var)
+        {
+            this.variables = var;
+        }
+        public QMSolver(List<List<string>> epi)
+        {
+            for (int i = 0; i < epi.Count; i++)
+            {
+                List<string> copy = new List<string>(epi[i]);
+                essentialPi.Add(new List<string>(copy));
+            }
+            //Console.WriteLine("INSIDE: ");
+            //for (int j = 0; j < essentialPi.Count; j++)
+            //{
+            //    for (int k = 0; k < essentialPi[j].Count; k++)
+            //    {
+            //        Console.Write(essentialPi[j][k]);
+            //    }
+            //    Console.Write("\n");
+            //}
+        }
         public QMSolver(int var, List<int> mint, List<int> dc)
         {
             this.variables = var;
-            this.minterms_orig = mint;
-            this.minTerms = mint;
-            this.dontcares = dc;
+            this.minterms_orig = new List<int>(mint);
+            this.minTerms = new List<int>(mint);
+            this.dontcares = new List<int>(dc);
         }
 
         private void MERGE()
@@ -77,7 +98,7 @@ namespace BooleanAlgebraSolver
             }
             minTerms.Sort();
         }
-        private string DECTOBIN(int num)
+        public string DECTOBIN(int num)
         {
             string binary = Convert.ToString(num, 2);
             while (binary.Length != variables) binary = "0" + binary;
@@ -146,8 +167,30 @@ namespace BooleanAlgebraSolver
                 Console.Write("_______________________________________________________\n");
                 Console.Write("\n");
             }
+
+            //UNIQUE PI
+            Console.Write("\nUnique PI:\n ");
+            Console.WriteLine(primeImplicant.Count);
+            for (int i = 0; i < primeImplicant.Count; i++)
+            {
+                Console.Write(primeImplicant[i].Item1 + ": ");
+                for (int j = 0; j < primeImplicant[i].Item2.Count; j++)
+                {
+                    Console.Write(primeImplicant[i].Item2[j] + " ");
+                }
+                Console.Write("\n");
+            }
+
+            //ESSENTIAL PI
+            Console.Write("\nEssestial PI:\n ");
+            for (int i = 0; i < essentialPi.Count; i++)
+            {
+                Console.Write("Y = " + essentialPi[i][0].ToString());
+                for (int j = 1; j < essentialPi[i].Count; j++) Console.Write(" + " + (essentialPi[i][j]).ToString());
+                Console.Write("\n");
+            }
         }
-        private void UNIQUE()
+        public void UNIQUE()
         {
             Dictionary<string, List<int>> m = new Dictionary<string, List<int>>();
             for (int k = 0; k < stages.Count; k++)
@@ -174,17 +217,16 @@ namespace BooleanAlgebraSolver
         }
         void ESSENTIALPI()
         {
-
             int N = primeImplicant.Count;
             string required="";
             for (int i = 0; i < Math.Pow(2, variables); i++) required += "0";
 
-            for (int i = 0; i < minTerms.Count; i++)
+            for (int i = 0; i < minterms_orig.Count; i++)
             {
-                required = required.Remove(minTerms[i], 1).Insert(minTerms[i], "1");
+                required = required.Remove(minterms_orig[i], 1).Insert(minterms_orig[i], "1");
             }
 
-            List<List<string>> finalAns = new List<List<string>>(), finalAns2 = new List<List<string>>();
+            List<List<string>> finalAns = new List<List<string>>();
 
             for (int i = 0; i < Math.Pow(2, N); i++)
             {
@@ -210,7 +252,10 @@ namespace BooleanAlgebraSolver
                     cnt++;
                 }
 
-                if (curans == required) finalAns.Add(new List<string>(ans));
+                if (curans == required)
+                {
+                    finalAns.Add(new List<string>(ans));
+                }
             }
 
             int minCount = N;
@@ -221,7 +266,7 @@ namespace BooleanAlgebraSolver
                 if((int) finalAns[i].Count==minCount) essentialPi.Add(new List<string>(finalAns[i]));
             }
         }
-        void CONVERT()
+        public void CONVERT()
         {
             for (int i = 0; i < essentialPi.Count; i++)
             {
@@ -241,7 +286,6 @@ namespace BooleanAlgebraSolver
                 }
             }
         }
-
         private void PRINTSTAGE(STAGE s)
         {
             for (int i = 0; i < s.rows.Count; i++)
@@ -260,8 +304,7 @@ namespace BooleanAlgebraSolver
                 Console.WriteLine("");
             }
         }
-
-        public void solve()
+        public void solve(bool convert = true)
         {
             MERGE();
 
@@ -362,28 +405,8 @@ namespace BooleanAlgebraSolver
             }
 
             UNIQUE();
-            Console.WriteLine(primeImplicant.Count);
-            for (int i = 0; i < primeImplicant.Count; i++)
-            {
-                Console.Write(primeImplicant[i].Item1 + ": ");
-                for (int j = 0; j < primeImplicant[i].Item2.Count; j++)
-                {
-                    Console.Write(primeImplicant[i].Item2[j] + " ");
-                }
-                Console.Write("\n");
-            }
-
             ESSENTIALPI();
-
-            CONVERT();
-
-            Console.Write("\n\n");
-            for (int i = 0; i < essentialPi.Count; i++)
-            {
-                Console.Write("Y = " + essentialPi[i][0].ToString());
-                for (int j = 1; j < essentialPi[i].Count; j++) Console.Write(" + " + (essentialPi[i][j]).ToString());
-                Console.Write("\n");
-            }
+            if(convert) CONVERT();
         }
     }
 }

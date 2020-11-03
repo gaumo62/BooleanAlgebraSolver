@@ -44,6 +44,10 @@
             this.hazardTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.static0Button = new System.Windows.Forms.Button();
+            this.multipleOutMinButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.multipleOutMinTB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,11 +210,52 @@
             this.static0Button.UseVisualStyleBackColor = true;
             this.static0Button.Click += new System.EventHandler(this.static0Button_Click);
             // 
+            // multipleOutMinButton
+            // 
+            this.multipleOutMinButton.Location = new System.Drawing.Point(664, 314);
+            this.multipleOutMinButton.Name = "multipleOutMinButton";
+            this.multipleOutMinButton.Size = new System.Drawing.Size(110, 34);
+            this.multipleOutMinButton.TabIndex = 17;
+            this.multipleOutMinButton.Text = "Enter";
+            this.multipleOutMinButton.UseVisualStyleBackColor = true;
+            this.multipleOutMinButton.Click += new System.EventHandler(this.multipleOutMinButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(307, 325);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Number of Variables";
+            // 
+            // multipleOutMinTB
+            // 
+            this.multipleOutMinTB.Location = new System.Drawing.Point(450, 320);
+            this.multipleOutMinTB.Name = "multipleOutMinTB";
+            this.multipleOutMinTB.Size = new System.Drawing.Size(208, 22);
+            this.multipleOutMinTB.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 320);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(284, 25);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Multiple Output Minimization";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.multipleOutMinButton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.multipleOutMinTB);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.static0Button);
             this.Controls.Add(this.static1Button);
             this.Controls.Add(this.label4);
@@ -250,6 +295,10 @@
         private System.Windows.Forms.TextBox hazardTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button static0Button;
+        private System.Windows.Forms.Button multipleOutMinButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox multipleOutMinTB;
+        private System.Windows.Forms.Label label7;
     }
 }
 

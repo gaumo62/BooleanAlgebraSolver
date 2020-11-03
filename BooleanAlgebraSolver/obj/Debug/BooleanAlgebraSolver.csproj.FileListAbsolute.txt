@@ -11,3 +11,4 @@ D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\Bool
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapInput.resources
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMInput.resources
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardInput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleOutputMinimization.resources
