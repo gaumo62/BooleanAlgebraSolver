@@ -129,6 +129,8 @@ namespace BooleanAlgebraSolver
             MultipleOutputMinimizationSolver s = new MultipleOutputMinimizationSolver(this.variables, function1, function2);
             s.solve();
             s.PRNMINOUTPUT();
+            MultipleInputOutput mio = new MultipleInputOutput(s);
+            mio.Show();
         }
     }
 }

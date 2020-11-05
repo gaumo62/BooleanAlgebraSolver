@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeConversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeConversion.Designer.cs">
+      <DependentUpon>CodeConversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="HazardInput.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HazardInput.Designer.cs">
       <DependentUpon>HazardInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleInputOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultipleInputOutput.Designer.cs">
+      <DependentUpon>MultipleInputOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HazardOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HazardOutput.Designer.cs">
+      <DependentUpon>HazardOutput.cs</DependentUpon>
     </Compile>
     <Compile Include="HazardSolver.cs" />
     <Compile Include="KMapInput.cs">
@@ -81,8 +99,17 @@
       <DependentUpon>QMInput.cs</DependentUpon>
     </Compile>
     <Compile Include="QMSolver.cs" />
+    <EmbeddedResource Include="CodeConversion.resx">
+      <DependentUpon>CodeConversion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HazardInput.resx">
       <DependentUpon>HazardInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultipleInputOutput.resx">
+      <DependentUpon>MultipleInputOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HazardOutput.resx">
+      <DependentUpon>HazardOutput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KMapInput.resx">
       <DependentUpon>KMapInput.cs</DependentUpon>

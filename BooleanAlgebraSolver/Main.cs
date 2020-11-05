@@ -100,5 +100,11 @@ namespace BooleanAlgebraSolver
             MultipleOutputMinimization f = new MultipleOutputMinimization(int.Parse(multipleOutMinTB.Text.Trim()));
             f.Show();
         }
+
+        private void codeConversionButton_Click(object sender, EventArgs e)
+        {
+            CodeConversion f = new CodeConversion();
+            f.Show();
+        }
     }
 }

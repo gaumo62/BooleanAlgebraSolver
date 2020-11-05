@@ -227,6 +227,7 @@ namespace BooleanAlgebraSolver
             }
 
             List<List<string>> finalAns = new List<List<string>>();
+            if (N == 0) return;
 
             for (int i = 0; i < Math.Pow(2, N); i++)
             {
@@ -306,6 +307,7 @@ namespace BooleanAlgebraSolver
         }
         public void solve(bool convert = true)
         {
+            if (minterms_orig.Count == 0) return;
             MERGE();
 
             List<Tuple<int, ROW>> stage0 = new List<Tuple<int, ROW>>();

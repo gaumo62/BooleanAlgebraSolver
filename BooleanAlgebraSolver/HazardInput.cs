@@ -169,7 +169,8 @@ namespace BooleanAlgebraSolver
             //}
             HazardSolver hs = new HazardSolver(variables, expression, mode);
             hs.solve();
+            HazardOutput ho = new HazardOutput(hs, expressionLabel);
+            ho.Show();
         }
-
     }
 }

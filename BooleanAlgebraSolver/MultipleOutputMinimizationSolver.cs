@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BooleanAlgebraSolver
 {
-    class MINOUTPUT
+    public class MINOUTPUT
     {
         public List<string> Y1 = new List<string>();
         public List<string> Y2 = new List<string>();
@@ -14,16 +15,23 @@ namespace BooleanAlgebraSolver
         public int tc = 0;
         public MINOUTPUT()
         {
-            
+
+        }
+        public MINOUTPUT(MINOUTPUT a)
+        {
+            this.Y1 = new List<string>(a.Y1);
+            this.Y2 = new List<string>(a.Y2);
+            this.C = new List<string>(a.C);
+            this.tc = a.tc;
         }
     }
 
-    class MultipleOutputMinimizationSolver
+    public class MultipleOutputMinimizationSolver
     {
         public int variables;
         public List<int> function1 = new List<int>(), function2 = new List<int>();
         public List<MINOUTPUT> answer = new List<MINOUTPUT>();
-
+        public string dis = "";
         public MultipleOutputMinimizationSolver(int var, List<int> func1, List<int> func2)
         {
             this.variables = var;
@@ -65,48 +73,104 @@ namespace BooleanAlgebraSolver
         }
         MINOUTPUT COST(MINOUTPUT a)
         {
-            int l1 = 0, t1 = 0;
-            for (int i = 0; i < a.C.Count; i++)
+            int g = 0, ng = 0;
+            for(int i=0;i<a.Y1.Count;i++)
             {
-                int cnt = 0;
-                for (int j = 0; j < a.C[i].Length; j++)
+                int term_length = 0;
+                for(int j=0;j<a.Y1[i].Length;j++)
                 {
-                    if (a.C[i][j] != '-')
-                    {
-                        ++cnt;
-                        ++l1;
-                    }
+                    if (a.Y1[i][j] != '-') term_length++;
                 }
-                if (cnt > 1) t1 += 3;
-            }
-            for (int i = 0; i < a.Y1.Count; i++)
-            {
-                int cnt = 0;
-                for (int j = 0; j < a.Y1[i].Length; j++)
+                if(term_length>1)
                 {
-                    if (a.Y1[i][j] != '-')
-                    {
-                        ++cnt;
-                        ++l1;
-                    }
+                    g += term_length;
+                    ng++;
                 }
-                if (cnt > 1) t1 += 2;
             }
             for (int i = 0; i < a.Y2.Count; i++)
             {
-                int cnt = 0;
+                int term_length = 0;
                 for (int j = 0; j < a.Y2[i].Length; j++)
                 {
-                    if (a.Y2[i][j] != '-')
-                    {
-                        ++cnt;
-                        ++l1;
-                    }
+                    if (a.Y2[i][j] != '-') term_length++;
                 }
-                if (cnt > 1) t1 += 2;
+                if (term_length > 1)
+                {
+                    g += term_length;
+                    ng++;
+                }
             }
-            a.tc = l1 + t1 + 2;
+            for (int i = 0; i < a.C.Count; i++)
+            {
+                int term_length = 0;
+                for (int j = 0; j < a.C[i].Length; j++)
+                {
+                    if (a.C[i][j] != '-') term_length++;
+                }
+                if (term_length > 1)
+                {
+                    g += term_length;
+                    ng++;
+                }
+            }
+
+            if(a.Y1.Count+a.C.Count>1)
+            {
+                g += a.Y1.Count + a.C.Count;
+                ng++;
+            }
+            if (a.Y2.Count + a.C.Count > 1)
+            {
+                g += a.Y2.Count + a.C.Count;
+                ng++;
+            }
+            a.tc = g + ng;
+            //Console.WriteLine("Cost: " + a.tc.ToString());
             return a;
+            #region
+            //int l1 = 0, t1 = 0;
+            //for (int i = 0; i < a.C.Count; i++)
+            //{
+            //    int cnt = 0;
+            //    for (int j = 0; j < a.C[i].Length; j++)
+            //    {
+            //        if (a.C[i][j] != '-')
+            //        {
+            //            ++cnt;
+            //            ++l1;
+            //        }
+            //    }
+            //    if (cnt > 1) t1 += 3;
+            //}
+            //for (int i = 0; i < a.Y1.Count; i++)
+            //{
+            //    int cnt = 0;
+            //    for (int j = 0; j < a.Y1[i].Length; j++)
+            //    {
+            //        if (a.Y1[i][j] != '-')
+            //        {
+            //            ++cnt;
+            //            ++l1;
+            //        }
+            //    }
+            //    if (cnt > 1) t1 += 2;
+            //}
+            //for (int i = 0; i < a.Y2.Count; i++)
+            //{
+            //    int cnt = 0;
+            //    for (int j = 0; j < a.Y2[i].Length; j++)
+            //    {
+            //        if (a.Y2[i][j] != '-')
+            //        {
+            //            ++cnt;
+            //            ++l1;
+            //        }
+            //    }
+            //    if (cnt > 1) t1 += 2;
+            //}
+            //a.tc = l1 + t1 + 2;
+            //return a;
+            #endregion
         }
         private List<MINOUTPUT> COSTUTILITY(List<List<string>> a, List<List<string>> b, List<List<string>> c)
         {
@@ -124,7 +188,7 @@ namespace BooleanAlgebraSolver
                         temp.C = new List<string>(empty);
                         temp.tc = 0;
                         temp = COST(temp);
-                        answer.Add(temp);
+                        answer.Add(new MINOUTPUT(temp));
                     }
                 }
                 return answer;
@@ -141,7 +205,7 @@ namespace BooleanAlgebraSolver
                         temp.C = new List<string>(c[k]);
                         temp.tc = 0;
                         temp = COST(temp);
-                        answer.Add(temp);
+                        answer.Add(new MINOUTPUT(temp));
                     }
                 }
             }
@@ -150,41 +214,32 @@ namespace BooleanAlgebraSolver
         List<MINOUTPUT> MINCOST(List<MINOUTPUT> A)
         {
             int cost = Int32.MaxValue;
-            Console.WriteLine("COSTS:");
+            //Console.WriteLine("COSTS:");
             for (int i = 0; i < A.Count; i++)
             {
                 cost = Math.Min(cost, A[i].tc);
-                Console.WriteLine(A[i].tc);
+                //Console.WriteLine(A[i].tc);
             }
 
             List<MINOUTPUT> answer = new List<MINOUTPUT>();
 
             for (int i = 0; i < A.Count; i++)
                 if (A[i].tc == cost)
-                    answer.Add(A[i]);
+                    answer.Add(new MINOUTPUT(A[i]));
 
             return answer;
         }
         public void PRNMINOUTPUT()
         {
-
             Console.Write("\n");
+            dis += "\n";
             for (int i = 0; i < answer.Count; i++)
             {
                 List<List<string>> temp = new List<List<string>>();
                 temp.Add(new List<string>(answer[i].Y1));
                 temp.Add(new List<string>(answer[i].Y2));
                 temp.Add(new List<string>(answer[i].C));
-                Console.WriteLine("TOTAL COST = " + answer[i].tc);
-                Console.WriteLine("BEFORE: ");
-                for (int j = 0; j < temp.Count; j++)
-                {
-                    for (int k = 0; k < temp[j].Count; k++)
-                    {
-                        Console.Write(temp[j][k]);
-                    }
-                    Console.Write("\n");
-                }
+                //Console.WriteLine("TOTAL COST = " + answer[i].tc);
                 QMSolver q = new QMSolver(temp);
                 q.CONVERT();
                 temp = new List<List<string>>();
@@ -198,26 +253,44 @@ namespace BooleanAlgebraSolver
                 answer[i].C = new List<string>(temp[2]);
 
                 Console.Write("Y1 = ");
-
+                dis += "Y1 = ";
                 for (int j = 0; j < answer[i].C.Count; j++)
+                {
                     Console.Write(answer[i].C[j] + " + ");
-
+                    dis += answer[i].C[j] + " + ";
+                }
                 for (int j = 0; j < answer[i].Y1.Count; j++)
+                {
                     Console.Write(answer[i].Y1[j] + " + ");
+                    dis += answer[i].Y1[j] + " + ";
+                }
 
+                dis = dis.Substring(0, dis.Length - 2);
                 Console.Write("\n");
+                dis += "\n";
 
                 Console.Write("Y2 = ");
+                dis += "Y2 = ";
                 for (int j = 0; j < answer[i].C.Count; j++)
+                {
                     Console.Write(answer[i].C[j] + " + ");
+                    dis += answer[i].C[j] + " + ";
+                }
 
                 for (int j = 0; j < answer[i].Y2.Count; j++)
+                {
                     Console.Write(answer[i].Y2[j] + " + ");
+                    dis += answer[i].Y2[j] + " + ";
+
+                }
+                dis = dis.Substring(0, dis.Length - 2);
 
                 Console.Write("\n");
+                dis += "\n";
 
                 Console.WriteLine("TOTAL COST = " + answer[i].tc);
                 Console.Write("\n");
+                dis += "TOTAL COST = " + answer[i].tc;
             }
         }
         public void solve()
@@ -262,12 +335,12 @@ namespace BooleanAlgebraSolver
                     int SC = BINTODEC(sc);
                     sc.Reverse();
                     
-                    Console.WriteLine(S1.ToString() + " " + S2.ToString() + " "+ SC.ToString());
+                    //Console.WriteLine(S1.ToString() + " " + S2.ToString() + " "+ SC.ToString());
 
                     S1 = S1 ^ SC;
                     S2 = S2 ^ SC;
 
-                    Console.WriteLine(S1.ToString() + " " + S2.ToString() + " " + SC.ToString());
+                    //Console.WriteLine(S1.ToString() + " " + S2.ToString() + " " + SC.ToString());
 
                     string ts1 = (new QMSolver(N)).DECTOBIN(S1);
                     string ts2 = (new QMSolver(N)).DECTOBIN(S2);
@@ -279,18 +352,18 @@ namespace BooleanAlgebraSolver
                     //ts2 = ts2.Reverse();
                     //tsc.Reverse();
 
-                    Console.WriteLine(ts1 + " " + ts2 + " " + tsc);
+                    //Console.WriteLine(ts1 + " " + ts2 + " " + tsc);
 
                     List<int> t_mt1 = STRTOVEC(ts1);
                     List<int> t_mt2 = STRTOVEC(ts2);
                     List<int> t_mtc = STRTOVEC(tsc);
-                    Console.WriteLine("anaklakcsaklcmklasmcklasmcklasmckllasmkcmaskcmas");
-                    for (int j = 0; j < t_mt1.Count; j++) Console.Write(t_mt1[j] + " ");
-                    Console.Write("\n");
-                    for (int j = 0; j < t_mt2.Count; j++) Console.Write(t_mt2[j] + " ");
-                    Console.Write("\n");
-                    for (int j = 0; j < t_mtc.Count; j++) Console.Write(t_mtc[j] + " ");
-                    Console.Write("\n");
+                    //Console.WriteLine("anaklakcsaklcmklasmcklasmcklasmckllasmkcmaskcmas");
+                    //for (int j = 0; j < t_mt1.Count; j++) Console.Write(t_mt1[j] + " ");
+                    //Console.Write("\n");
+                    //for (int j = 0; j < t_mt2.Count; j++) Console.Write(t_mt2[j] + " ");
+                    //Console.Write("\n");
+                    //for (int j = 0; j < t_mtc.Count; j++) Console.Write(t_mtc[j] + " ");
+                    //Console.Write("\n");
 
                     List<int> emp = new List<int>();
 
@@ -303,27 +376,27 @@ namespace BooleanAlgebraSolver
                     //q3.PRINT();
 
 
-                    Console.WriteLine("q1: ");
-                    for (int k = 0; k < q1.essentialPi.Count; k++)
-                    {
-                        for (int j = 0; j < q1.essentialPi[k].Count; j++) Console.Write(q1.essentialPi[k][j] + " ");
-                        Console.WriteLine("");
-                    }
-                    Console.WriteLine("q2: ");
-                    for (int k = 0; k < q2.essentialPi.Count; k++)
-                    {
-                        for (int j = 0; j < q2.essentialPi[k].Count; j++) Console.Write(q2.essentialPi[k][j] + " ");
-                        Console.WriteLine("");
-                    }
-                    Console.WriteLine("q3: ");
-                    for (int k = 0; k < q3.essentialPi.Count; k++)
-                    {
-                        for (int j = 0; j < q3.essentialPi[k].Count; j++) Console.Write(q3.essentialPi[k][j] + " ");
-                        Console.WriteLine("");
-                    }
+                    //Console.WriteLine("q1: ");
+                    //for (int k = 0; k < q1.essentialPi.Count; k++)
+                    //{
+                    //    for (int j = 0; j < q1.essentialPi[k].Count; j++) Console.Write(q1.essentialPi[k][j] + " ");
+                    //    Console.WriteLine("");
+                    //}
+                    //Console.WriteLine("q2: ");
+                    //for (int k = 0; k < q2.essentialPi.Count; k++)
+                    //{
+                    //    for (int j = 0; j < q2.essentialPi[k].Count; j++) Console.Write(q2.essentialPi[k][j] + " ");
+                    //    Console.WriteLine("");
+                    //}
+                    //Console.WriteLine("q3: ");
+                    //for (int k = 0; k < q3.essentialPi.Count; k++)
+                    //{
+                    //    for (int j = 0; j < q3.essentialPi[k].Count; j++) Console.Write(q3.essentialPi[k][j] + " ");
+                    //    Console.WriteLine("");
+                    //}
                     List<MINOUTPUT> tempo = COSTUTILITY(q1.essentialPi, q2.essentialPi, q3.essentialPi);
                     for (int j = 0; j < tempo.Count; j++)
-                        answer.Add(tempo[j]);
+                        answer.Add(new MINOUTPUT(tempo[j]));
                 }
             }
 
@@ -331,24 +404,33 @@ namespace BooleanAlgebraSolver
             QMSolver qo1 = new QMSolver(variables, function1, empty), qo2 = new QMSolver(variables, function2, empty);
             qo1.solve(false);
             qo2.solve(false);
-            Console.WriteLine("qo1: ");
-            for (int k = 0; k < qo1.essentialPi.Count; k++)
-            {
-                for (int j = 0; j < qo1.essentialPi[k].Count; j++) Console.Write(qo1.essentialPi[k][j] + " ");
-                Console.WriteLine("");
-            }
-            Console.WriteLine("qo2: ");
-            for (int k = 0; k < qo2.essentialPi.Count; k++)
-            {
-                for (int j = 0; j < qo2.essentialPi[k].Count; j++) Console.Write(qo2.essentialPi[k][j] + " ");
-                Console.WriteLine("");
-            }
+            //Console.WriteLine("qo1: ");
+            //for (int k = 0; k < qo1.essentialPi.Count; k++)
+            //{
+            //    for (int j = 0; j < qo1.essentialPi[k].Count; j++) Console.Write(qo1.essentialPi[k][j] + " ");
+            //    Console.WriteLine("");
+            //}
+            //Console.WriteLine("qo2: ");
+            //for (int k = 0; k < qo2.essentialPi.Count; k++)
+            //{
+            //    for (int j = 0; j < qo2.essentialPi[k].Count; j++) Console.Write(qo2.essentialPi[k][j] + " ");
+            //    Console.WriteLine("");
+            //}
             List<List<string>> empty1 = new List<List<string>>();
             List<MINOUTPUT> temp = COSTUTILITY(qo1.essentialPi, qo2.essentialPi, empty1);
             for (int i = 0; i < temp.Count; i++)
-                answer.Add(temp[i]);
+                answer.Add(new MINOUTPUT(temp[i]));
 
-            answer = MINCOST(answer);
+            //Console.WriteLine("Answer before: " + answer.Count.ToString());
+            answer = new List<MINOUTPUT>(MINCOST(answer));
+            //Console.WriteLine("Answer After: " + answer.Count.ToString());
+
+            //Console.WriteLine("FINAL COSTS:");
+            //for(int i=0;i<answer.Count;i++)
+            //{
+            //    Console.Write(answer[i].tc.ToString());
+            //    Console.WriteLine("");
+            //}
         }
     }
 }
