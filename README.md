@@ -8,7 +8,7 @@ Sohan Kumar Parida,
 Shreyash Bapodia,
 Divyansh Singh,
 Rahul Agrawal,
-Rhitvik Sinha
+and Rhitvik Sinha
 
 Our term project is a software package for Boolean Algebra and Digital Electronics enthusiasts which will help then solve simple to complex problems instantly. Our software has features which include:
 
