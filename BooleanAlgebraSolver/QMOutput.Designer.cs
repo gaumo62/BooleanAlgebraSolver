@@ -244,7 +244,7 @@
             this.Controls.Add(this.noofvarLabel);
             this.Controls.Add(this.label1);
             this.Name = "QMOutput";
-            this.Text = "HazardOutput";
+            this.Text = "QM Output";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

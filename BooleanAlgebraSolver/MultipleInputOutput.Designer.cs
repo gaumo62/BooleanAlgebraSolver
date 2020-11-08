@@ -121,7 +121,7 @@
             this.Controls.Add(this.noofvarLabel);
             this.Controls.Add(this.label1);
             this.Name = "MultipleInputOutput";
-            this.Text = "HazardOutput";
+            this.Text = "Multiple Output Minimization output";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

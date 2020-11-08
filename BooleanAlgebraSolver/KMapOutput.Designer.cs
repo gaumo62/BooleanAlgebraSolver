@@ -266,7 +266,7 @@
             this.Controls.Add(this.noofvarLabel);
             this.Controls.Add(this.label1);
             this.Name = "KMapOutput";
-            this.Text = "HazardOutput";
+            this.Text = "K-Map Output";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
