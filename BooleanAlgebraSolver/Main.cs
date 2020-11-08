@@ -106,5 +106,37 @@ namespace BooleanAlgebraSolver
             CodeConversion f = new CodeConversion();
             f.Show();
         }
+
+        private void generateHCButton_Click(object sender, EventArgs e)
+        {
+            if (hammingCodeInputTB.Text.Trim().Length == 0) return;
+            for(int i=0;i<hammingCodeInputTB.Text.Trim().Length;i++)
+            {
+                if(hammingCodeInputTB.Text.Trim()[i]!='0' && hammingCodeInputTB.Text.Trim()[i] != '1')
+                {
+                    MessageBox.Show("Incorrect Input Code. Data should be in 0s and 1s only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            HammingCodeGenerator h = new HammingCodeGenerator(hammingCodeInputTB.Text.Trim());
+            h.generate();
+            h.Show();
+        }
+
+        private void checkErrorButton_Click(object sender, EventArgs e)
+        {
+            if (hammingCodeInputTB.Text.Trim().Length == 0) return;
+            for (int i = 0; i < hammingCodeInputTB.Text.Trim().Length; i++)
+            {
+                if (hammingCodeInputTB.Text.Trim()[i] != '0' && hammingCodeInputTB.Text.Trim()[i] != '1')
+                {
+                    MessageBox.Show("Incorrect Input Code. Data should be in 0s and 1s only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            HammingCodeCorrector h = new HammingCodeCorrector(hammingCodeInputTB.Text.Trim());
+            h.correct();
+            //h.Show();
+        }
     }
 }

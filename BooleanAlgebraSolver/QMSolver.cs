@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BooleanAlgebraSolver
 {
-    class ROW
+    public class ROW
     {
         public string s;
         public List<int> minTermsIncluded;
@@ -34,7 +34,7 @@ namespace BooleanAlgebraSolver
             this.minTermsIncluded = new List<int>(r.minTermsIncluded);
         }
     }
-    class STAGE
+    public class STAGE
     {
         public List<List<ROW>> rows;
         public STAGE(STAGE s)
@@ -52,15 +52,19 @@ namespace BooleanAlgebraSolver
         }
     }
 
-    class QMSolver
+    public class QMSolver
     {
-        public int variables;
+        public int variables, mode;
         public List<int> minterms_orig = new List<int>(); //Original minterms
         public List<int> dontcares = new List<int>();
         public List<int> minTerms = new List<int>();  //Minterms + DC
         public List<STAGE> stages = new List<STAGE>();
+        public List<string> dis = new List<string>();
         public List<Tuple<string, List<int>>> primeImplicant = new List<Tuple<string, List<int>>>();
+        public List<string> primeImplicantTerms = new List<string>();
         public List<List<string>> essentialPi = new List<List<string>>();
+        public List<List<string>> raw_essentialPi = new List<List<string>>();
+
         public QMSolver(int var)
         {
             this.variables = var;
@@ -72,19 +76,11 @@ namespace BooleanAlgebraSolver
                 List<string> copy = new List<string>(epi[i]);
                 essentialPi.Add(new List<string>(copy));
             }
-            //Console.WriteLine("INSIDE: ");
-            //for (int j = 0; j < essentialPi.Count; j++)
-            //{
-            //    for (int k = 0; k < essentialPi[j].Count; k++)
-            //    {
-            //        Console.Write(essentialPi[j][k]);
-            //    }
-            //    Console.Write("\n");
-            //}
         }
-        public QMSolver(int var, List<int> mint, List<int> dc)
+        public QMSolver(int var, List<int> mint, List<int> dc, int m=1)
         {
             this.variables = var;
+            this.mode = m;
             this.minterms_orig = new List<int>(mint);
             this.minTerms = new List<int>(mint);
             this.dontcares = new List<int>(dc);
@@ -144,28 +140,37 @@ namespace BooleanAlgebraSolver
         }
         public void PRINT()
         {
-            //Console.Write("Stages Count: " + stages.Count+"\n");
             for (int i = 0; i < stages.Count; i++)
             {
+                string temp = "";
                 Console.Write("STAGE " + (i + 1).ToString() + ":\n\n");
+                temp += "STAGE " + (i + 1).ToString() + ":\n\n";
                 List<List<ROW>> rows = new List<List<ROW>>(stages[i].rows);
                 for (int j = 0; j < rows.Count; j++)
                 {
                     for (int k = 0; k < rows[j].Count; k++)
                     {
                         Console.Write(rows[j][k].s + "   ");
+                        temp += rows[j][k].s + "   ";
                         Console.Write("isTICKED?" + " " + rows[j][k].isTicked + "    ");
+                        if(rows[j][k].isTicked==1) temp += "TICKED?" + " " + "\u2714" + "    ";
+                        else temp += "TICKED?" + " " + "\u2718" + "    ";
                         List<int> t =new List<int>(rows[j][k].minTermsIncluded);
                         for (int l = 0; l < t.Count; l++)
                         {
                             Console.Write(t[l] + " ");
+                            temp += t[l] + " ";
                         }
                         Console.Write("\n");
+                        temp += "\n";
                     }
                     Console.Write("\n");
+                    temp += "\n";
                 }
                 Console.Write("_______________________________________________________\n");
                 Console.Write("\n");
+                temp += "\n";
+                dis.Add(temp);
             }
 
             //UNIQUE PI
@@ -174,6 +179,7 @@ namespace BooleanAlgebraSolver
             for (int i = 0; i < primeImplicant.Count; i++)
             {
                 Console.Write(primeImplicant[i].Item1 + ": ");
+                primeImplicantTerms.Add(CONVERT(primeImplicant[i].Item1));
                 for (int j = 0; j < primeImplicant[i].Item2.Count; j++)
                 {
                     Console.Write(primeImplicant[i].Item2[j] + " ");
@@ -286,6 +292,37 @@ namespace BooleanAlgebraSolver
                     essentialPi[i][j] = t2;
                 }
             }
+        }
+        public string CONVERT(string t1)
+        {
+            string t2 = "";
+            for (int k = 0; k < t1.Length; k++)
+            {
+                if (t1[k] != '-')
+                {
+                    if(mode==0) if (t2 != "") t2 += "+";
+                    t2 += (char)('A' + k);
+                    if (mode == 1)
+                    {
+                        if (t1[k] == '0') t2 += '\'';
+                    }
+                    else
+                    {
+                        if (t1[k] == '1') t2 += '\'';
+                    }
+                }
+            }
+            return t2;
+        }
+        public List<int> GETGROUP(string term)
+        {
+            int ind=-1;
+            for (int i=0;i<primeImplicant.Count;i++)
+            {
+                if (primeImplicant[i].Item1 == term) ind = i;
+            }
+            Console.WriteLine("Term :" + term+ "    Index: " + ind.ToString());
+            return primeImplicant[ind].Item2;
         }
         private void PRINTSTAGE(STAGE s)
         {
@@ -408,6 +445,7 @@ namespace BooleanAlgebraSolver
 
             UNIQUE();
             ESSENTIALPI();
+            for(int i=0;i<essentialPi.Count;i++)    raw_essentialPi.Add(new List<string>(essentialPi[i]));
             if(convert) CONVERT();
         }
     }

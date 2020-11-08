@@ -34,6 +34,8 @@
             this.ansLabel = new System.Windows.Forms.Label();
             this.func1Label = new System.Windows.Forms.Label();
             this.func2Label = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // expressionLabel
@@ -70,7 +72,7 @@
             // 
             this.ansLabel.AutoSize = true;
             this.ansLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ansLabel.Location = new System.Drawing.Point(309, 250);
+            this.ansLabel.Location = new System.Drawing.Point(332, 73);
             this.ansLabel.Name = "ansLabel";
             this.ansLabel.Size = new System.Drawing.Size(69, 29);
             this.ansLabel.TabIndex = 26;
@@ -85,6 +87,7 @@
             this.func1Label.Size = new System.Drawing.Size(93, 25);
             this.func1Label.TabIndex = 29;
             this.func1Label.Text = "Y1 = Σm(";
+            this.func1Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // func2Label
             // 
@@ -95,20 +98,32 @@
             this.func2Label.Size = new System.Drawing.Size(93, 25);
             this.func2Label.TabIndex = 30;
             this.func2Label.Text = "Y2 = Σm(";
+            this.func2Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.ansLabel);
+            this.panel1.Location = new System.Drawing.Point(12, 209);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(817, 262);
+            this.panel1.TabIndex = 31;
             // 
             // MultipleInputOutput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 483);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.func2Label);
             this.Controls.Add(this.func1Label);
-            this.Controls.Add(this.ansLabel);
             this.Controls.Add(this.expressionLabel);
             this.Controls.Add(this.noofvarLabel);
             this.Controls.Add(this.label1);
             this.Name = "MultipleInputOutput";
             this.Text = "HazardOutput";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +136,6 @@
         private System.Windows.Forms.Label ansLabel;
         private System.Windows.Forms.Label func1Label;
         private System.Windows.Forms.Label func2Label;
+        private System.Windows.Forms.Panel panel1;
     }
 }

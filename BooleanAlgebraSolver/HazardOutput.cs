@@ -22,6 +22,7 @@ namespace BooleanAlgebraSolver
             {
                 titleLabel.Text = "NO HAZARD FOUND!!";
             }
+            
             for(int i=0,j=0;i<Math.Ceiling((decimal)hs.hz_vars.Count/2);i++,j+=2)
             {
                 if (i > 0)

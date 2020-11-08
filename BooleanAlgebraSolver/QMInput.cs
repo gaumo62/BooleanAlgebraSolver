@@ -124,6 +124,8 @@ namespace BooleanAlgebraSolver
             QMSolver s = new QMSolver(this.variables, minterms, dontcares);
             s.solve();
             s.PRINT();
+            QMOutput qo = new QMOutput(s);
+            qo.Show();
         }
     }
 }

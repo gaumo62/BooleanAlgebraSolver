@@ -13,6 +13,9 @@ namespace BooleanAlgebraSolver
     public partial class KMapInput : Form
     {
         private int variables;
+        private List<int> minterm = new List<int>();
+        private List<int> maxterm = new List<int>();
+        private List<int> dontcare = new List<int>();
         public KMapInput(int var)
         {
             InitializeComponent();
@@ -57,8 +60,6 @@ namespace BooleanAlgebraSolver
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(f => f.SortMode = DataGridViewColumnSortMode.NotSortable);
         }
-
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //When any cell of the table is clicked, if it is a checkbox cell, that checkbox should get ticked and rest all should get unticked
@@ -70,17 +71,16 @@ namespace BooleanAlgebraSolver
             }
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = true;
         }
-
-        private void minimizeButton_Click(object sender, EventArgs e)
+        private bool checks()
         {
+            minterm = new List<int>();
+            maxterm = new List<int>();
+            dontcare = new List<int>();
             int row_count = 0;
-            List<int> minterm = new List<int>();
-            List<int> maxterm = new List<int>();
-            List<int> dontcare = new List<int>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 //Check if only 1 checkbox per row is clicked. If yes, add the terms to respective arrays
-                int check = 0,check_ind=-1;
+                int check = 0, check_ind = -1;
                 for (int i = dataGridView1.Columns.Count - 3; i < dataGridView1.Columns.Count; i++)
                 {
                     DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[i];
@@ -90,10 +90,10 @@ namespace BooleanAlgebraSolver
                         check_ind = dataGridView1.Columns.Count - i;
                     }
                 }
-                if(check!=1)
+                if (check != 1)
                 {
-                    MessageBox.Show("Enter 1 value in row: " + row_count,"Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    MessageBox.Show("Enter 1 value in row: " + row_count, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
                 }
                 else
                 {
@@ -109,11 +109,29 @@ namespace BooleanAlgebraSolver
             for (int i = 0; i < minterm.Count; i++) Console.Write(minterm[i] + " ");
             Console.WriteLine("\nDont Cares:");
             for (int i = 0; i < dontcare.Count; i++) Console.WriteLine(dontcare[i] + " ");
+
+            return true;
+        }
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            if (!checks()) return;
+            
             QMSolver s = new QMSolver(this.variables, minterm, dontcare);
             s.solve();
             s.PRINT();
+            KMapOutput ko = new KMapOutput(s, maxterm);
+            ko.Show();
         }
 
+        private void minimizePOSButton_Click(object sender, EventArgs e)
+        {
+            if (!checks()) return;
 
+            QMSolver s = new QMSolver(this.variables, maxterm, dontcare,0);
+            s.solve();
+            s.PRINT();
+            KMapOutput ko = new KMapOutput(s, maxterm);
+            ko.Show();
+        }
     }
 }

@@ -51,6 +51,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.codeConversionButton = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.hammingCodeInputTB = new System.Windows.Forms.TextBox();
+            this.generateHCButton = new System.Windows.Forms.Button();
+            this.checkErrorButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,11 +285,63 @@
             this.codeConversionButton.UseVisualStyleBackColor = true;
             this.codeConversionButton.Click += new System.EventHandler(this.codeConversionButton_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(22, 418);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(160, 25);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Hamming Code";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(188, 423);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 17);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Enter";
+            // 
+            // hammingCodeInputTB
+            // 
+            this.hammingCodeInputTB.Location = new System.Drawing.Point(236, 421);
+            this.hammingCodeInputTB.Name = "hammingCodeInputTB";
+            this.hammingCodeInputTB.Size = new System.Drawing.Size(208, 22);
+            this.hammingCodeInputTB.TabIndex = 23;
+            // 
+            // generateHCButton
+            // 
+            this.generateHCButton.Location = new System.Drawing.Point(450, 414);
+            this.generateHCButton.Name = "generateHCButton";
+            this.generateHCButton.Size = new System.Drawing.Size(191, 34);
+            this.generateHCButton.TabIndex = 24;
+            this.generateHCButton.Text = "Generate Hamming Code";
+            this.generateHCButton.UseVisualStyleBackColor = true;
+            this.generateHCButton.Click += new System.EventHandler(this.generateHCButton_Click);
+            // 
+            // checkErrorButton
+            // 
+            this.checkErrorButton.Location = new System.Drawing.Point(647, 414);
+            this.checkErrorButton.Name = "checkErrorButton";
+            this.checkErrorButton.Size = new System.Drawing.Size(141, 34);
+            this.checkErrorButton.TabIndex = 25;
+            this.checkErrorButton.Text = "Check for Error";
+            this.checkErrorButton.UseVisualStyleBackColor = true;
+            this.checkErrorButton.Click += new System.EventHandler(this.checkErrorButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.checkErrorButton);
+            this.Controls.Add(this.generateHCButton);
+            this.Controls.Add(this.hammingCodeInputTB);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.codeConversionButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -338,6 +395,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button codeConversionButton;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox hammingCodeInputTB;
+        private System.Windows.Forms.Button generateHCButton;
+        private System.Windows.Forms.Button checkErrorButton;
     }
 }
 

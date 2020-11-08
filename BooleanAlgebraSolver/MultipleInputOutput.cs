@@ -26,6 +26,10 @@ namespace BooleanAlgebraSolver
             
             ansLabel.Text = ms.dis;
             ansLabel.AutoSize = true;
+            ansLabel.TextAlign = ContentAlignment.MiddleCenter;
+            ansLabel.Dock = DockStyle.None;
+            ansLabel.Location = new Point(ansLabel.Location.X, ansLabel.Location.Y - 15);
+            ansLabel.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 }

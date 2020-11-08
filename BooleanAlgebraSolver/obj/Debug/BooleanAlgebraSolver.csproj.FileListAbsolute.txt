@@ -15,3 +15,7 @@ D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\Bool
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.CodeConversion.resources
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardOutput.resources
 D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleInputOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeGenerator.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeCorrector.resources

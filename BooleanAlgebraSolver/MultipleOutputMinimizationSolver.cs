@@ -288,9 +288,9 @@ namespace BooleanAlgebraSolver
                 Console.Write("\n");
                 dis += "\n";
 
-                Console.WriteLine("TOTAL COST = " + answer[i].tc);
+                Console.WriteLine("Total Cost = " + answer[i].tc);
                 Console.Write("\n");
-                dis += "TOTAL COST = " + answer[i].tc;
+                dis += "Total Cost = " + answer[i].tc+"\n\n";
             }
         }
         public void solve()

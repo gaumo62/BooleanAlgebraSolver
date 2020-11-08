@@ -33,7 +33,8 @@
             this.Column0 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnX = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.minimizeButton = new System.Windows.Forms.Button();
+            this.minimizeSOPButton = new System.Windows.Forms.Button();
+            this.minimizePOSButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,22 +88,33 @@
             this.ColumnX.Name = "ColumnX";
             this.ColumnX.Width = 125;
             // 
-            // minimizeButton
+            // minimizeSOPButton
             // 
-            this.minimizeButton.Location = new System.Drawing.Point(914, 548);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(145, 48);
-            this.minimizeButton.TabIndex = 2;
-            this.minimizeButton.Text = "Minimize";
-            this.minimizeButton.UseVisualStyleBackColor = true;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            this.minimizeSOPButton.Location = new System.Drawing.Point(914, 494);
+            this.minimizeSOPButton.Name = "minimizeSOPButton";
+            this.minimizeSOPButton.Size = new System.Drawing.Size(145, 48);
+            this.minimizeSOPButton.TabIndex = 2;
+            this.minimizeSOPButton.Text = "Minimize SOP";
+            this.minimizeSOPButton.UseVisualStyleBackColor = true;
+            this.minimizeSOPButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // minimizePOSButton
+            // 
+            this.minimizePOSButton.Location = new System.Drawing.Point(914, 548);
+            this.minimizePOSButton.Name = "minimizePOSButton";
+            this.minimizePOSButton.Size = new System.Drawing.Size(145, 48);
+            this.minimizePOSButton.TabIndex = 3;
+            this.minimizePOSButton.Text = "Minimize POS";
+            this.minimizePOSButton.UseVisualStyleBackColor = true;
+            this.minimizePOSButton.Click += new System.EventHandler(this.minimizePOSButton_Click);
             // 
             // KMapInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 614);
-            this.Controls.Add(this.minimizeButton);
+            this.Controls.Add(this.minimizePOSButton);
+            this.Controls.Add(this.minimizeSOPButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "KMapInput";
@@ -120,6 +132,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column0;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnX;
-        private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button minimizeSOPButton;
+        private System.Windows.Forms.Button minimizePOSButton;
     }
 }

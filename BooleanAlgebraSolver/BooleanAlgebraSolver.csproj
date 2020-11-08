@@ -52,11 +52,35 @@
     <Compile Include="CodeConversion.Designer.cs">
       <DependentUpon>CodeConversion.cs</DependentUpon>
     </Compile>
+    <Compile Include="HammingCodeCorrector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HammingCodeCorrector.Designer.cs">
+      <DependentUpon>HammingCodeCorrector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HammingCodeGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HammingCodeGenerator.Designer.cs">
+      <DependentUpon>HammingCodeGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="HazardInput.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HazardInput.Designer.cs">
       <DependentUpon>HazardInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KMapOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KMapOutput.Designer.cs">
+      <DependentUpon>KMapOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QMOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QMOutput.Designer.cs">
+      <DependentUpon>QMOutput.cs</DependentUpon>
     </Compile>
     <Compile Include="MultipleInputOutput.cs">
       <SubType>Form</SubType>
@@ -102,8 +126,20 @@
     <EmbeddedResource Include="CodeConversion.resx">
       <DependentUpon>CodeConversion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HammingCodeCorrector.resx">
+      <DependentUpon>HammingCodeCorrector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HammingCodeGenerator.resx">
+      <DependentUpon>HammingCodeGenerator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HazardInput.resx">
       <DependentUpon>HazardInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KMapOutput.resx">
+      <DependentUpon>KMapOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QMOutput.resx">
+      <DependentUpon>QMOutput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MultipleInputOutput.resx">
       <DependentUpon>MultipleInputOutput.cs</DependentUpon>
