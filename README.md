@@ -3,11 +3,11 @@ A C# Windows Desktop Application that solves many Boolean Algebra problems.
 This project is done by the students of IIT Kharagpur.
 
 Team Members:
-Gaurang Mohta
-Sohan Kumar Parida
-Shreyash Bapodia
-Divyansh Singh
-Rahul Agrawal
+Gaurang Mohta,
+Sohan Kumar Parida,
+Shreyash Bapodia,
+Divyansh Singh,
+Rahul Agrawal,
 Rhitvik Sinha
 
 Our term project is a software package for Boolean Algebra and Digital Electronics enthusiasts which will help then solve simple to complex problems instantly. Our software has features which include:
