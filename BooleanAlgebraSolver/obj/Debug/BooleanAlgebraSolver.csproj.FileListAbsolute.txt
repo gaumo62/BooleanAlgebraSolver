@@ -1,0 +1,42 @@
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.exe.config
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.exe
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.pdb
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csprojAssemblyReference.cache
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.Main.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.Properties.Resources.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csproj.GenerateResource.cache
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csproj.CoreCompileInputs.cache
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.exe
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.pdb
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapInput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMInput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardInput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleOutputMinimization.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.CodeConversion.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleInputOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapOutput.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeGenerator.resources
+D:\Semester 5\Digital Electronic Circuits\Term Project\BooleanAlgebraSolver\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeCorrector.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csprojAssemblyReference.cache
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.CodeConversion.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeCorrector.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HammingCodeGenerator.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardInput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapOutput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMOutput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleInputOutput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.HazardOutput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.KMapInput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.Main.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.Properties.Resources.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.MultipleOutputMinimization.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.QMInput.resources
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csproj.GenerateResource.cache
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.csproj.CoreCompileInputs.cache
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.exe
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\obj\Debug\BooleanAlgebraSolver.pdb
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.exe.config
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.exe
+C:\Users\Kaushik\Desktop\BooleanAlgebraSolver-main\BooleanAlgebraSolver\bin\Debug\BooleanAlgebraSolver.pdb
