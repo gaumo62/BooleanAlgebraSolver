@@ -1,3 +1,10 @@
+# Instructions to run this file:
+1. Go to the BooleanAlgebraSolver > bin > BooleanAlgebraSolver.exe
+2. Download BooleanAlgebra.exe in your Windows computer.
+3. To run it, either
+  a. Right-click and "Run as Administrator"
+  b. Right-click > Properties > Check "Unblock". Click on "Apply" and the "OK" and run as usual.
+
 # BooleanAlgebraSolver
 A C# Windows Desktop Application that solves many Boolean Algebra problems. 
 This project is done by the students of IIT Kharagpur.
