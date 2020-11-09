@@ -2,7 +2,7 @@
 1. Go to the BooleanAlgebraSolver > bin > BooleanAlgebraSolver.exe
 2. Download BooleanAlgebra.exe in your Windows computer.
 3. To run it, either
-  a. Right-click and "Run as Administrator"
+  a. Right-click and "Run as Administrator" 
   b. Right-click > Properties > Check "Unblock". Click on "Apply" and "OK". Run as usual.
 
 # BooleanAlgebraSolver
