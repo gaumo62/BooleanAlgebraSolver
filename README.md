@@ -1,5 +1,5 @@
 # Instructions to run the file:
-1. Go to the BooleanAlgebraSolver > bin > BooleanAlgebraSolver.exe
+1. Go to the BooleanAlgebraSolver > bin/Debug > BooleanAlgebraSolver.exe
 2. Download BooleanAlgebra.exe in your Windows computer.
 3. To run it, either
   (a) Right-click and "Run as Administrator" OR
