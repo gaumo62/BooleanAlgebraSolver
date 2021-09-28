@@ -17,7 +17,7 @@ Divyansh Singh,
 Rahul Agrawal,
 and Rhitvik Sinha
 
-Our term project is a software package for Boolean Algebra and Digital Electronics enthusiasts which will help then solve simple to complex problems instantly. Our software has features which include:
+Our term project is a software package for Boolean Algebra and Digital Electronics enthusiasts which will help them solve simple to complex problems instantly. Our software has features which include:
 
 1. Karnaugh-Map (K-Map) Solver for SOP (Sum-Of-Products) and POS (Product-Of-Sum) with Don’t Cares (2-5 variables).
 2. Quine-McCuskey (QM) Algorithm for Prime Implicants (PI) and Essential Prime Implicants with Don’t Cares (Any number of variables).
